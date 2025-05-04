@@ -30,15 +30,13 @@ app.use(express.static(path.join(__dirname, "clientBuild")));
 // Add allowed origins for frontend communication
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://localhost:.3001",
-      "https://budget-backend-ja4p.onrender.com",
-    ], // Allowed origins
+    origin: ["http://localhost:3000", "https://budgetly-0ige.onrender.com"], // Allowed origins
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE", "PATCH"], // Allowed HTTP methods
     credentials: true, // Allow cookies and credentials
   })
 );
+
+app.options("*", cors()); // Handle preflight requests
 
 // Configure session management
 app.use(
