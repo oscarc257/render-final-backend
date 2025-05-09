@@ -111,6 +111,7 @@ const auth_register = async (req, res) => {
             userId: newUser.id,
           },
         ],
+        skipDuplicates: true, // Skip entries that violate unique constraints
       });
 
       // Respond with the new user's ID
